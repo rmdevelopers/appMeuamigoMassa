@@ -1,0 +1,13 @@
+<ion-view title="{{new.title}}">
+    <ion-content class="has-header">
+
+        <img ng-src="{{new.picture}}" alt="{{new.title}}"/>
+        
+        <div class="padding">
+        <h2 class="title">{{new.title}}</h2>
+        <p>{{new.body}}</p>
+        <p><i class="icon ion-pricetags"></i> <span ng-repeat="tag in new.tags">{{tag}}{{$last ? '' : ', '}}</span></p>
+        </div>
+
+    </ion-content>
+</ion-view>

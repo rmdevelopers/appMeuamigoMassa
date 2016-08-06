@@ -1,0 +1,42 @@
+<ion-view title="Mobionic Feed">
+    <ion-content class="has-header" overflow-scroll="true">
+        
+		<div class="screen">
+			<img src="http://lorempixel.com/1024/768/"/>
+			<div class="item item-text-wrap">
+				<h1>Unlimited Grouped Feeds</h1>
+				Atom, RSS, or Media RSS
+			</div>
+		</div>
+        
+         <!-- One-column layout -->
+         <ion-list style="display:none;">
+            
+            <a class="item" href="#/app/feed-category/{{$index}}" ng-repeat="category in categories">  
+                <h2 class="title">{{category.title}}</h2>
+                <p ng-bind-html="category.description"></p></p>
+            </a>
+        
+         </ion-list>
+    
+        <!-- Two-columns layout -->
+        <div ng-repeat="category in categories" ng-if="$index%2==0" class="row">
+
+            <div class="card col">
+                <a class="item" href="#/app/feed-category/{{$index}}">  
+                    <h2 class="title">{{categories[$index].title}}</h2>
+                    <p ng-bind-html="categories[$index].description"></p>
+                </a>
+            </div>
+
+            <div class="card col">
+                <a class="item" href="#/app/feed-category/{{$index+1}}">  
+                    <h2 class="title">{{categories[$index+1].title}}</h2>
+                    <p ng-bind-html="categories[$index+1].description"></p>
+                </a>
+            </div>
+
+        </div>
+    
+    </ion-content>
+</ion-view>

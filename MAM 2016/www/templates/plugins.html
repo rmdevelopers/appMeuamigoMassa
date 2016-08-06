@@ -1,0 +1,17 @@
+<ion-view title="Plugins">
+    <ion-content class="has-header">
+
+        <div class="list">
+
+            <a ng-repeat="item in items" class="item item-icon-left" href="{{item.url}}">
+            <i class="icon {{item.icon}}"></i>
+            {{item.title}}
+            <span class="item-note">
+            {{item.note}}
+            </span>
+            </a>
+
+        </div>
+
+    </ion-content>
+</ion-view>

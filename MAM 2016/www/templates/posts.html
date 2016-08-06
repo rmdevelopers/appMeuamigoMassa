@@ -1,0 +1,24 @@
+<ion-view title="WP JSON">
+    <ion-content class="has-header" overflow-scroll="true">
+        
+        {{storage}}
+        
+        <div class="list">
+
+            <a class="item" ng-class="{'item-thumbnail-left' : post.attachments.length}" href="#/app/posts/{{$index}}" ng-repeat="post in posts | limitTo: paginationLimit()">
+                <img ng-src="{{post.attachments[0].images.thumbnail.url}}" ng-show="{{post.attachments.length}}" alt="{{post.title}}">
+                
+                <h2>{{post.title}}</h2>
+                <p ng-bind-html="post.excerpt"></p>
+            </a>
+
+        </div>
+        
+        <div class="padding">
+        <button class="button button-block button-positive" ng-show="hasMoreItems()" ng-click="showMoreItems()" >
+        Show more
+        </button>
+        </div>
+       
+    </ion-content>
+</ion-view>

@@ -1,0 +1,46 @@
+<ion-view title="RSS Feeds">
+    
+    <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    
+    <ion-content class="has-header">
+        
+        <ion-refresher
+        pulling-text="Pull to refresh..."
+        on-refresh="doRefresh()">
+        </ion-refresher>
+        
+        {{storage}}
+        
+         <ion-list>
+
+            <div class="item item-icon-left">
+            <i class="icon ion-flag"></i>
+            {{title}}
+            </div>
+
+            <div class="item item-icon-left">
+            <i class="icon ion-information-circled"></i>
+            <strong>Description:</strong> {{description}}
+            </div>
+
+            <div class="item item-icon-left">
+            <i class="icon ion-social-rss"></i>
+            <strong>Feed URL:</strong> {{link}}
+            </div>
+
+            <div class="item item-divider">Feeds (Pull to refresh)</div>
+            
+            <a class="item" ng-class="{'item-thumbnail-left' : getImage($index)}" href="#/app/feeds/{{$index}}" ng-repeat="feed in feeds">
+                
+                <img ng-if="getImage($index)" ng-src="{{getImage($index)}}" class="thumbnail" alt="{{feed.title}}">
+                
+                <h2 class="title">{{feed.title}}</h2>
+                <p ng-bind-html="feed.contentSnippet"></p></p>
+            </a>
+        
+         </ion-list>
+    
+    </ion-content>
+</ion-view>

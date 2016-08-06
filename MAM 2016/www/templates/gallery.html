@@ -1,0 +1,21 @@
+<ion-view title="Gallery">
+    <ion-content class="has-header" locking="true">
+        
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true"> 
+            <ion-slide ng-repeat="item in items">
+                
+                <ul class="list">
+                    <li class="item item-icon-left">
+                    <i class="icon ion-information-circled"></i> {{item.description}}
+                    </li>
+                    <li class="item item-icon-left">
+                    <i class="icon ion-navigate"></i> {{item.location}}
+                    </li>
+                </ul>
+                <img ng-src="{{item.src}}"/>
+                
+            </ion-slide>
+        </ion-slide-box>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,14 @@
+<ion-view title="{{title}}">
+    <ion-content class="has-header" overflow-scroll="true">
+        
+         <ion-list>
+            
+            <a class="item" href="#/app/feed-master/{{id}}/{{item.id}}" ng-repeat="item in items">  
+                <h2 class="title">{{item.title}}</h2>
+                <p ng-bind-html="item.description"></p></p>
+            </a>
+        
+         </ion-list>
+    
+    </ion-content>
+</ion-view>

@@ -1,0 +1,86 @@
+<ion-view title="Settings">
+    <ion-content class="has-header">
+        
+        <div class="item item-divider">Options</div>
+        <ul class="list">
+            
+            <li ng-repeat="setting in settings.options">
+            <ion-toggle ng-model="setting.checked" ng-checked="setting.checked" toggle-class="toggle-positive">{{setting.name}}</ion-toggle>
+            </li>
+
+        </ul>
+        
+        <div class="item item-divider">Sorting</div>
+        <ul class="list">
+            <li><ion-radio ng-model="settings.sorting" ng-value="'A'">Sort Manually</ion-radio></li>
+            <li><ion-radio ng-model="settings.sorting" ng-value="'B'">Sort By Time</ion-radio></li>
+        </ul>
+        
+        <div class="item item-divider">Range</div>
+        <div class="item range range-positive">
+        <i class="icon ion-sad-outline"></i>
+        <input type="range" min="0" max="100" value="{{settings.range}}" ng-model="settings.range">
+        <i class="icon ion-happy-outline"></i>
+        </div>
+        
+        <div class="item item-divider">Reset Settings</div>
+        <div class="list">
+            
+            <div class="item item-button-right">
+            Reset All Settings 
+            <button class="button" ng-click="resetSettings()">
+            Reset
+            </button>
+            </div>
+
+        </div>
+        
+        <div class="item item-divider">Local Storage</div>
+        <div class="list">
+            
+            <div class="item item-button-right">
+            News
+            <button class="button" ng-click="resetNewsStorage()">
+            Clear
+            </button>
+            </div>
+            
+            <div class="item item-button-right">
+            Products
+            <button class="button" ng-click="resetProductsStorage()">
+            Clear
+            </button>
+            </div>
+            
+            <div class="item item-button-right">
+            About
+            <button class="button" ng-click="resetAboutStorage()">
+            Clear
+            </button>
+            </div>
+            
+            <div class="item item-button-right">
+            Feeds
+            <button class="button" ng-click="resetFeedsStorage()">
+            Clear
+            </button>
+            </div>
+            
+            <div class="item item-button-right">
+            Wordpress JSON Posts
+            <button class="button" ng-click="resetPostsStorage()">
+            Clear
+            </button>
+            </div>
+            
+            <div class="item item-button-right">
+            Wordpress JSON Posts (Pagination)
+            <button class="button" ng-click="resetServerPostsStorage()">
+            Clear
+            </button>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

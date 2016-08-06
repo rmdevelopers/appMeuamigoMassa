@@ -1,0 +1,27 @@
+<ion-view title="YouTube">
+    <ion-content class="has-header">
+        
+        <ion-refresher
+        pulling-text="Pull to refresh..."
+        on-refresh="doRefresh()">
+        </ion-refresher>
+        
+        <ion-list>
+
+            <a class="item item-thumbnail-left" href="#/app/youtubevideos/{{$index}}" ng-repeat="video in videos | limitTo: paginationLimit()">
+                <img ng-src="{{video.snippet.thumbnails.default.url}}" ng-if="video.snippet.thumbnails.default.url" alt="{{video.snippet.title}}"  class="thumbnail"></img>
+                
+                <h2>{{video.snippet.title}}</h2>
+                <p ng-bind-html="video.snippet.description"></p>
+            </a>
+
+        </ion-list>
+        
+        <div class="padding">
+        <button class="button button-block button-positive" ng-show="hasMoreItems()" ng-click="showMoreItems()">
+        Show more
+        </button>
+        </div>
+       
+    </ion-content>
+</ion-view>

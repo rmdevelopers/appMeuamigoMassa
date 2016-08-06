@@ -1,0 +1,25 @@
+<ion-view title="{{video.snippet.title}}">
+    
+    <ion-nav-buttons side="right">
+    <a class="button button-clear" ng-click="shareVideo()"><i class="icon ion-share"></i></a>
+    </ion-nav-buttons>
+    
+    <ion-content class="has-header">
+        
+    <iframe width="100%" height="215" ng-if="video.snippet.resourceId.videoId" ng-src="{{getVideoUrl()}}" frameborder="0" allowfullscreen="true"></iframe>
+        
+        <div class="padding">
+            <h2 class="title">{{video.snippet.title}}</h2>
+            
+            <div style="padding:0 0 20px 0;">
+            Published at {{video.snippet.publishedAt | date:'fullDate'}} by <strong>{{video.snippet.channelTitle}}</strong>
+            </div>
+
+            <p ng-bind-html="content"></p>
+            
+            <p><button class="button icon-left ion-share button-outline button-positive" ng-click="shareVideo()">Share this</button></p>
+            
+        </div>
+
+    </ion-content>
+</ion-view>

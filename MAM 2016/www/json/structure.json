@@ -1,0 +1,102 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "title": "News",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "icon": "calendar",
+      "items": [
+        {
+          "id": 1,
+          "title": "The Guardian",
+          "description": "The Guardian is a British national daily newspaper. Founded in 1821, it was known as The Manchester Guardian until 1959.",
+          "url": "http://www.theguardian.com/world/rss"
+        },
+        {
+          "id": 2,
+          "title": "Huffington Post",
+          "description": "The Huffington Post is an American online news aggregator and blog.",
+          "url": "http://www.huffingtonpost.com/feeds/news.xml"
+        },
+        {
+          "id": 3,
+          "title": "BBC News",
+          "description": "BBC News is an operational business division[1] of the British Broadcasting Corporation (BBC) responsible for the gathering and broadcasting of news and current affairs.",
+          "url": "http://feeds.bbci.co.uk/news/rss.xml"
+        },
+        {
+          "id": 4,
+          "title": "Apple Hot News",
+          "description": "Apple Inc. is an American multinational corporation.",
+          "url": "https://www.apple.com/main/rss/hotnews/hotnews.rss"
+        },
+        {
+          "id": 5,
+          "title": "Apple Developer News",
+          "description": "Apple Inc. is an American multinational corporation.",
+          "url": "https://developer.apple.com/news/rss/news.rss"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Sports",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "icon": "flag",
+      "items": [
+        {
+          "id": 1,
+          "title": "BBC Sport - Front Page",
+          "description": "This is an RSS feed from the BBC Sport - Sport website.",
+          "url": "http://feeds.bbci.co.uk/sport/0/rss.xml?edition=uk"
+        },
+        {
+          "id": 2,
+          "title": "BBC Sport - Football",
+          "description": "This is an RSS feed from the BBC Sport - Football website.",
+          "url": "http://feeds.bbci.co.uk/sport/0/football/rss.xml?edition=uk"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Economic",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+      "icon": "money",
+      "items": [
+        {
+          "id": 1,
+          "title": "The Economist",
+          "description": "The Economist is an English-language weekly newspaper owned by The Economist Newspaper Ltd and edited in offices in London.",
+          "url": "http://www.economist.com/topics/economics/index.xml"
+        },
+        {
+          "id": 2,
+          "title": "World Bank - Africa",
+          "description": "World Bank RSS Feeds by Africa region.",
+          "url": "http://wbws.worldbank.org/feeds/xml/afr_all.xml"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Media",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
+      "icon": "video-camera",
+      "items": [
+        {
+          "id": 1,
+          "title": "TEDTalks",
+          "description": "TED (Technology, Entertainment, Design) is a global set of conferences owned by the private non-profit Sapling Foundation, under the slogan: Ideas Worth Spreading.",
+          "url": "http://feeds.feedburner.com/tedtalks_video"
+        },
+        {
+          "id": 2,
+          "title": "Channel 9",
+          "description": "Channel 9 keeps you up to date with the latest news and behind the scenes info from Microsoft that developers love to keep up with.",
+          "url": "http://channel9.msdn.com/Feeds/RSS/ipod"
+        }
+      ]
+    }
+  ]
+}

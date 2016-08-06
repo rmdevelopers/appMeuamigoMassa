@@ -1,0 +1,40 @@
+<ion-view title="RSS Feeds">
+    <ion-content class="has-header" overflow-scroll="true">
+        
+        {{storage}}
+        
+         <ion-list>
+
+            <div class="item item-icon-left">
+            <i class="icon ion-flag"></i>
+            {{title}}
+            </div>
+
+            <div class="item item-icon-left">
+            <i class="icon ion-information-circled"></i>
+            <strong>Description:</strong> {{description}}
+            </div>
+
+            <div class="item item-icon-left">
+            <i class="icon ion-social-rss"></i>
+            <strong>Feed URL:</strong> {{link}}
+            </div>
+
+            <div class="item item-divider">Feeds</div>
+            
+            <a class="item" ng-class="{'item-thumbnail-left' : getImage($index)}" href="#/app/feeds/{{$index}}" ng-repeat="feed in feeds | limitTo: paginationLimit()">
+                
+                <img ng-if="getImage($index)" ng-src="{{getImage($index)}}" class="thumbnail" alt="{{feed.title}}">
+                
+                <h2 class="title">{{feed.title}}</h2>
+                <p ng-bind-html="feed.contentSnippet"></p></p>
+            </a>
+        
+         </ion-list>
+    
+        <button class="button button-block button-positive" ng-show="hasMoreItems()" ng-click="showMoreItems()" >
+        Show more
+        </button>
+    
+    </ion-content>
+</ion-view>
