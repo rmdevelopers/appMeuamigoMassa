@@ -3,8 +3,6 @@ angular.module('mobionicApp.data', [])
 // Home Data: Home page configuration
 .factory('Data', function(){
     var data = {};
-
-    // Itens do Menu
     
     data.items = [
         { 
@@ -22,30 +20,25 @@ angular.module('mobionicApp.data', [])
         { 
             title: 'Galeria',
             icon: 'ion-images',
-       //   note: 'Our Photos',
+      //    note: 'Our Photos',
             url: '#/app/gallery'
-        },     
+        },
         {
-            title: 'Atrações'
-            icon:
+           title: 'Atrações',
+           icon: '',
+           url: ''  
         },
         { 
             title: 'Map',
             icon: 'ion-map',
-      //    note: 'Find Us',
+       //   note: 'Find Us',
             url: '#/app/map'
         },
         { 
             title: 'About',
             icon: 'ion-person-stalker',
-            note: 'About Us',
+       //   note: 'About Us',
             url: '#/app/about'
-        },
-        { 
-            title: 'Contact',
-            icon: 'ion-email',
-            note: 'Contact Us',
-            url: '#/app/contact'
         },
         { 
             title: 'RSS',
