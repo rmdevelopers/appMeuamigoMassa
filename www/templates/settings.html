@@ -1,0 +1,39 @@
+<ion-view view-title="Settings">
+   <ion-content has-header="true">
+      <ul class="list">
+      	<li>
+           <div class="item item-divider">
+             Settings
+           </div>
+        </li>
+        <li class="item item-toggle">
+        	  Enable Notifications
+           <label class="toggle toggle-assertive">
+             <input ng-model="pushNot.pushStatus" ng-click="savePushDetails();" type="checkbox">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+        <li class="item item-button-left" ng-click="shareArticle(AppName, AndroidAppUrl);">
+          	Share App
+          	<button class="button button-assertive">
+            	<i class="icon ion-android-share-alt"></i>
+          	</button>
+        </li>
+        <li class="item item-button-left" ng-click="openLinkSystem(AndroidAppUrl);">
+				Rate App
+          	<button class="button button-assertive">
+            	<i class="icon ion-ios-star-outline"></i>
+          	</button>
+        <li class="item item-button-left" ng-click="openLinkSystem('http://fb.com/weblogtemplates');">
+        		Follow us
+          	<button class="button button-positive">
+            	<i class="icon ion-social-facebook"></i>
+          	</button>
+        </li>
+        
+      </ul>
+    </ion-content>
+   
+</ion-view>

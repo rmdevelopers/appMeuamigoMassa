@@ -1,0 +1,15 @@
+<ion-view view-title="Categories">
+   <ion-content class="post-content">
+      <div class="list">
+    		<a href="#/news/category/{{cat.cat_id}}/{{cat.title}}" class="item item-avatar item-cat-custom" ng-repeat="cat in categories">
+      		<img ng-src="{{cat.image || 'img/photo.png'}}"></img>
+      		<h2>{{cat.title}}</h2>
+    		</a>
+		</div>
+      <ion-infinite-scroll
+       	ng-if="postsCompleted == false"
+       	on-infinite="getCategries()"
+       	distance="10%">
+     	</ion-infinite-scroll>
+   </ion-content>
+</ion-view>

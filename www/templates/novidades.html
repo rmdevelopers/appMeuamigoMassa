@@ -1,0 +1,39 @@
+<ion-view view-title="Novidades">
+   <ion-content class="post-content">
+   	<ion-refresher
+       	pulling-text="Pull to refresh..."
+       	on-refresh="doRefresh()">
+     	</ion-refresher>
+      <div class="list" ng-repeat="item in items">
+        <div class="item item-image">
+          <img ng-src="{{item.image || 'img/photo.png'}}"></img>
+        </div>
+        <div class="item item-body item-post-main">
+        		<h2>{{item.title}}</h2>
+          	<!--<p>{{item.created_dt}} by {{item.author.user_full_name}} from {{item.source_title}}</p>-->
+        		<div ng-bind-html="item.description | cut:true:200:' ...'">
+          	</div>
+        </div>
+        <div class="item tabs tabs-secondary tabs-icon-left">
+          <a class="tab-item" ng-click="readMore($index);">
+            <i class="icon ion-android-open"></i>
+            IR PARA O POST
+          </a>
+          <a class="tab-item" ng-show="item.source" ng-click="openLinkArticle(item.source)">
+            <i class="icon ion-ios-paper"></i>
+            Notícia completa
+          </a>
+          <a class="tab-item" ng-click="shareArticle(item.title,item.url);">
+            <i class="icon ion-share"></i>
+            Compartilhar
+          </a>
+        </div>
+      
+      </div>
+      <ion-infinite-scroll
+       	ng-if="postsCompleted == false"
+       	on-infinite="getPosts()"
+       	distance="10%">
+     	</ion-infinite-scroll>
+   </ion-content>
+</ion-view>

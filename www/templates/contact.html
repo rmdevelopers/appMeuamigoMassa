@@ -1,0 +1,25 @@
+<ion-view view-title="Contact us">
+  	<ion-content padding="10">
+      <div class="list">
+      	<form method="post" ng-submit="submitForm(postForm.$valid)" name="postForm" novalidate>
+        		<label class="item item-input">
+            	<input required ng-model="user.name" name="name" type="text" placeholder="Name">
+            	<span ng-message class="warning-message-normal" ng-show="postForm.name.$invalid && postForm.name.$dirty">Required</span>
+        		</label>
+        		<label class="item item-input">
+          		<input required type="email" ng-model="user.email" name="email" placeholder="Email" value="">
+        		</label>
+            
+        		<span ng-message class="item item-input warning-message-normal" ng-show="postForm.email.$error.required && postForm.email.$dirty">Required</span>
+        		<span ng-message class="item item-input warning-message-normal" ng-show="postForm.email.$error.email && postForm.email.$dirty">This is not a valid email.</span>
+        		<label class="item item-input">
+            	<textarea required ng-model="user.details" name="details" placeholder="Comments"></textarea>
+            	<span ng-message class="warning-message-normal" ng-show="postForm.details.$invalid && postForm.details.$dirty">Required</span>
+        		</label>
+        		<button class="button button-block button-{{appColor}}">
+          		Submit
+        		</button>
+        	</form>
+      </div>
+  </ion-content>
+</ion-view>

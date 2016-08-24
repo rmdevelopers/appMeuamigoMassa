@@ -1,0 +1,31 @@
+<ion-view view-title="{{heading}}" on-swipe-right="onSwipeRight()" on-swipe-left="onSwipeLeft()">
+   <ion-content class="post-content post-article">
+      <div class="list">
+        <div class="item item-image">
+          <img ng-src="{{item.image || 'img/photo.png'}}"></img>
+        </div>
+        <div class="item item-body item-post-main">
+        		<h2>{{item.title}}</h2>
+          	<!--<p>{{item.created_dt}} by {{item.author.user_full_name}} from {{item.source_title}}</p>-->
+        		<div ng-bind-html="description">
+          	</div>
+        </div>
+      </div>
+   </ion-content>
+   <div class="tabs tabs-icon-left">
+  		<a class="tab-item" ng-click="onSwipeRight()">
+      	<i class="icon ion-arrow-left-c"></i>
+    	</a>
+     <a class="tab-item" ng-show="item.source" ng-click="openLinkArticle(item.source)">
+      	<i class="icon ion-ios-paper"></i>
+      	Notícia completa
+    </a>
+    <a class="tab-item" ng-click="shareArticleImage(item.title,item.url);">
+      	<i class="icon ion-share"></i>
+      	Compartilhar
+    </a>
+    <a class="tab-item" ng-click="onSwipeLeft()">
+      <i class="icon ion-arrow-right-c"></i>
+    </a>
+   </div>
+</ion-view>

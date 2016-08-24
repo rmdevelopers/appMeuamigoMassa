@@ -1,8 +1,9 @@
-var services = angular.module("app.services", []);
+var app = angular.module("app.services", []);
 
-services.factory("ImageService", function ($cordovaCamera, $cordovaFile, FileService) {
 
-  // retorno
+app.factory("ImageService", function ($cordovaCamera, $cordovaFile, FileService) {
+
+    // retorno
   self = {};
 
   makeID = function () {
@@ -21,10 +22,10 @@ services.factory("ImageService", function ($cordovaCamera, $cordovaFile, FileSer
     var options = {
       destinationType : Camera.DestinationType.FILE_URI, 
       sourceType : Camera.PictureSourceType.CAMERA, 
-      allowEdit : true,
+      //allowEdit : true,
       encodingType: Camera.EncodingType.JPEG,
-      targetWidth: 800,
-      targetHeight: 800,
+      targetWidth: 437,
+      targetHeight: 737,
       saveToPhotoAlbum: false
 
     };
@@ -47,6 +48,7 @@ services.factory("ImageService", function ($cordovaCamera, $cordovaFile, FileSer
       $cordovaFile.copyFile(namePath, name, cordova.file.externalRootDirectory + 'MeuAmigoMassa/', newName)
         .then(function () {
           FileService.addImage(newName);
+
         }, function (e) {
           console.log(e);
         });
@@ -59,7 +61,7 @@ services.factory("ImageService", function ($cordovaCamera, $cordovaFile, FileSer
 
 });
 
-services.factory("FileService", function ($cordovaFile) {
+app.factory("FileService", function ($cordovaFile) {
   var self = {};
   var images;
   var IMAGE_STORAGE_KEY = 'images';
@@ -83,3 +85,41 @@ services.factory("FileService", function ($cordovaFile) {
   return self;
 
 });
+
+
+//app run getting device id
+app.run(function ($rootScope, myPushNotification) {
+  // app device ready
+  document.addEventListener("deviceready", function(){
+    //myPushNotification.registerPush();
+  });
+   $rootScope.get_device_token = function () {
+      if(localStorage.device_token) {
+         return localStorage.device_token;
+      } else {
+         return '-1';
+      }
+   }
+});
+//myservice device registration id to localstorage
+app.service('myService', ['$http','Config','SendPush', function($http,Config,SendPush) {
+   this.registerID = function(regID, platform) {
+    if(regID && platform && device.uuid ){
+      SendPush.saveDetails(regID, device.uuid, platform)
+      .success(function (data) {
+        //alert(data)
+      })
+      .error(function (error) {
+        //alert('error'+data)
+      });
+    }
+    localStorage.device_token = regID;
+   }
+}]);
+app.run(function($rootScope, globalFactory) {
+  $rootScope.globalFunction = globalFactory;
+});
+// config to disable default ionic navbar back button text and setting a new icon
+app.config(function($ionicConfigProvider) {
+    $ionicConfigProvider.backButton.text('Voltar').icon('ion-ios-arrow-back').previousTitleText(false);
+})

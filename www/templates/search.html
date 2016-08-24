@@ -1,0 +1,24 @@
+<ion-view view-title="{{MainHeading}}">
+   <ion-content class="post-content">
+   	<div class="list">
+        	<div class="item item-input-inset">
+            <label class="item-input-wrapper">
+            	<input ng-model="searchQuery.query" type="text" placeholder="Digite algo">
+            </label>
+            <button ng-click="searchSubmitFunction();" class="button button-small">
+            buscar
+            </button>
+        	</div>
+      	<a ng-repeat="item in items" ng-show="item.title" class="item item-thumbnail-left" ng-click="readMore($index);">
+            <img ng-src="{{item.image || 'img/photo.png'}}">
+            <h2>{{ item.title }}</h2>
+            <p>{{item.created_dt}}</p>
+      	</a>
+      </div>
+      <ion-infinite-scroll
+       ng-if="postsCompleted == false"
+       on-infinite="getPosts()"
+       distance="20%">
+     </ion-infinite-scroll>
+   </ion-content>
+</ion-view>

@@ -1,0 +1,17 @@
+<ion-view view-title="Adicionar Moldura">
+	<ion-pane> 
+		<ion-content overflow-scroll="true" ng-controller="MolduraCtrl">				
+      		<button id="btn-compartilhar" ng-click="commoldura()">Compartilhar</button>  
+      		<button id="btn-mygoback" ng-click="myGoBack()">Escolher outra imagem</button>        		
+              
+	        <div id="container">
+	        	{{addmoldura()}}
+	          <canvas id="canvas" width="413" height="737"></canvas>
+	          <div id="overlay"> 
+	          <img src="img/molduraA.png" id="ma_moldura" ng-style="photo" />
+	          <img ng-src="{{imgbeck()}}" id="background"  ng-style="photo"/>
+	          </div>
+	        </div>
+		</ion-content>
+	</ion-pane>
+</ion-view>

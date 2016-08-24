@@ -1,0 +1,19 @@
+<ion-view view-title="Amigo Selfie ">
+	<ion-pane> 
+		<ion-content overflow-scroll="true" ng-controller="CameraCtrl">	
+
+			<ng-repeat ng-repeat="image in images">
+				<a ng-click="molds(image)" >
+					<img ng-src="{{urlForImage(image)}}" class="fundo" style="height:200px; padding: 5px 5px 5px 5px;"/>
+				</a>
+			</ng-repeat>
+ 		
+			<div class="col text-center">		
+				<i class="icon ion-ios-camera cmf" ng-click="captureImage()"></i>
+			</div>
+			<div class="col text-center">		
+				Tire uma foto com o seu amigo mais massa de todos, toque na imagem para compartilhar no seu Facebook e concorra a um brinde no dia do evento!
+			</div>
+		</ion-content>
+	</ion-pane>
+</ion-view>

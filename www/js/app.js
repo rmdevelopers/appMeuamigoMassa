@@ -1,25 +1,25 @@
-// Ionic Starter App
+app.constant("Config", {
+  "WebUrl": "http://rdeveloper.com.br/apis/",
+  "AppName" : "Meu Amigo é Massa!",
+  "AndroidAppUrl" : "https://play.google.com/store/apps/details?id=com.myspecialgames.advanced2048game",
+  "ErrorMessage" : "Atualizado"
+})
+// config contact
+app.constant("ConfigContact", {
+  "EmailId": "rafaelmp.web@gmail.com",
+  "ContactSubject": "Contato"
+})
+// config admon
+app.constant("ConfigAdmob", {
+  "interstitial": "ca-app-pub-3940256099942544/1033173712",
+  "banner": "ca-app-pub-3940256099942544/6300978111"
+})
+// color variations
+app.constant("Color", {
+  "AppColor": "positive", //light, stable, positive, calm, balanced, energized, assertive, royal, dark
+})
+// push notification
+app.constant("PushNoti", {
+  "senderID": "senderID",
+})
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-var app = angular.module('starter', ['ionic', 'ngCordova', 'app.controllers', 'app.services'])
-
-.run(function($ionicPlatform, $cordovaFile, FileService) {
-  $ionicPlatform.ready(function() {
-  $cordovaFile.createDir(cordova.file.externalRootDirectory, "MeuAmigoMassa", false); 
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-      // for form inputs)
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-
-      // Don't remove this line unless you know what you are doing. It stops the viewport
-      // from snapping when text inputs are focused. Ionic handles this internally for
-      // a much nicer keyboard experience.
-      cordova.plugins.Keyboard.disableScroll(true);
-    }
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  });
-});

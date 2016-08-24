@@ -1,7 +1,7 @@
 {
-  "name": "imagestorage",
+  "name": "appmeuamigoemassa",
   "version": "1.1.1",
-  "description": "ImageStorage: An Ionic project",
+  "description": "appMeuamigoeMassa: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
@@ -20,22 +20,13 @@
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
-    "ionic-plugin-keyboard",
-    {
-      "locator": "https://github.com/apache/cordova-plugin-camera",
-      "id": "cordova-plugin-camera"
-    },
-    {
-      "locator": "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git",
-      "id": "cordova-plugin-x-socialsharing"
-    },
-    {
-      "locator": "https://github.com/apache/cordova-plugin-file",
-      "id": "cordova-plugin-file"
-    },
-    "org.apache.cordova.file"
+    "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [
-    "android"
+    {
+      "platform": "android",
+      "locator": "windows"
+    },
+    "ios"
   ]
 }
