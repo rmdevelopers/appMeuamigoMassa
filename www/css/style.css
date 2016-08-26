@@ -1,7 +1,7 @@
 body {cursor: url('http://ionicframework.com/img/finger.png'), auto;}
 #fhm_page .scroll, .fhm_container { position:absolute;top:0;right:0;left:0;bottom:0;}
 .fhm_row {height: 33.3%;left:0;right:0;background-color:#FF0000;clear:both;}
-.fhm_item {height: 100%;width:49.95%;background-color: #00FF00;border: 1px solid #FFFFFF;float:left;}
+.fhm_item {height: 100%;width:49.95%;background-color: #552B5B;border: 1px solid #FFFFFF;float:left;} 
 .fhm_item {text-align: center;}
 .cmf{font-size: 100px;}
 
@@ -25,5 +25,11 @@ body {cursor: url('http://ionicframework.com/img/finger.png'), auto;}
 #container canvas, #overlay {
   position: absolute;
   max-width: 287px;
+}
+
+.teste{
+
+  width: 100px;
+  height: 100px;
 }
 
