@@ -1,0 +1,266 @@
+body {padding-top: 50px;background-color: #efefef;}
+
+#header-wrapper{margin-bottom:35px;padding:0px;}
+
+.h-title{font-size:25px;margin:0px;margin-top: 25px;}
+.h-title a{color: #DDD;
+text-decoration: none;
+background: url(../images/dearpinslogo.png) no-repeat;
+display: block;
+overflow: hidden;
+padding: 0;
+text-indent: -9999px;height: 60px;
+width: 353px;}
+#footer{background: #fff;
+margin: 0 auto 20px;
+padding: 15px 0 0;
+border-top: solid 1px #ccc;
+text-align: center;}
+.nextprev{height:50px;padding:10px;}
+.related{border:1px solid #ddd;border-radius: 4px;padding: 15px;}
+.page-post{line-height: 2em;
+background: #FCFCFC;
+margin-bottom: 20px;}
+.post{padding: 10px;color: #666666;overflow: hidden;line-height: 2em;margin-bottom: 10px;margin: 10px;}
+.mainshare{margin-top: 20px;margin-right: 5px;}
+.midalign{text-align: center;margin: 10px;background: #ddd;padding: 10px;border-radius: 5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;}
+.tagpost{padding-bottom:10px;}
+.imagethumbre{float:left;margin-right: 10px !important;}
+.rel_all{min-height:110px;margin-bottom: 5px;}
+.home-h4{height: 24px;font-size: 16px;font-weight: bold;margin:10px;}
+.home-h4 a{color:#2c3e50;}
+.thumbnail-list{text-align:center;background-color: #f8f8f8;}
+.post-media-heading{border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding: 10px 0;margin-bottom: 10px;}
+.post-media-heading h3{margin:0px !important;}
+.thumbnail-list img{display:inline !important;}
+.imgrow{margin-bottom: 1em;}
+.media-head .media-link{visibility:hidden;}.media-head h3:hover .media-link{visibility:visible;}
+.h3posthead{margin:10px;}
+.content-image{float:left; margin-right:10px;margin-bottom:10px;}
+.post-content{overflow: hidden;}
+.entry {background-color: #fff;
+border-radius: 3px;
+margin-top: 20px;
+padding: 10px 0;}
+.page-page{line-height: 2em;border-radius: 5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;border: 1px solid #ddd;background: #FCFCFC;}
+.page-description{font-size:14px;}
+.main-heading-post{font-size:30px;}
+.rowpost{margin: 0px !important;padding: 10px 0 6px 0;border-radius: 3px;}
+.content-row{font-size: 21px;font-weight: 700;}
+.content-row a{text-decoration:none;color:#111;}
+.content-row a:hover{text-decoration:none;color:#34495e;}
+.foottop{background: #2c3e50;margin-top:20px;padding:20px 0;}
+.foottop h3{color:#fff;}
+.foottop a{color:#fff;}
+.imagelogofoot{width: 135px;}
+.search-main{padding:20px 0;}
+.search-main-home{padding:20px 0;float:left;}
+.search-footer h2{text-align:center; font-size:15px;}
+.well-ext{background:#fff;}
+.well-ext a{color:#2c3e50;cursor:pointer;}
+
+.feed-item{border-bottom: 1px solid #ddd;background: #FCFCFC;}
+.feed-item-title{font-size:22px;}
+.feed-item-title a {color:#222;}
+.post-meta-home{
+	border-top: 1px solid #e7e6e6;
+border-bottom: 1px solid #e7e6e6;
+margin-top: 20px;
+padding: 5px 0;
+font-size: 12px;
+clear: both;
+overflow: hidden;
+}
+.post-meta-post {
+border-bottom: 2px solid #e7e6e6;
+margin: 10px 0;
+padding: 5px 0;
+font-size: 12px;
+clear: both;
+overflow: hidden;
+}
+.meta-elements{border-right:1px solid #e7e6e6; padding-right:10px;}
+.tag-meta{padding-left:10px;}
+.main-container{border: 1px solid #ddd;
+border-radius: 4px;
+margin-bottom: 20px;
+margin-top: 30px;
+background:#fff;}
+.txt-sorry{margin:30px;}
+.main-post-col{border-right:1px solid #ddd;}
+.media-items{margin-bottom: 10px;
+padding-bottom: 20px;}
+.post-download-meta{padding-top:20px;text-align:center;}
+.post-title-h2{margin-top:0px;}
+.footer-p a{padding:0 10px;}
+.footer-p{text-transform:uppercase}
+.post_media_image .img-responsive{
+	margin:0 auto;
+	padding:10px;
+	border:1px solid #ddd;
+}
+.media-items .glyphicon{
+	font-size:14px;
+	padding:0 10px;
+}
+#postsocial {
+border:1px solid #ddd;
+min-width:55px;
+width:auto;
+-moz-background-clip:padding;
+-webkit-background-clip:padding-box;
+-webkit-box-shadow:1px 0 5px rgba(0,0,0,.1);
+-moz-box-shadow:1px 0 5px rgba(0,0,0,.1);
+box-shadow:1px 0 5px rgba(0,0,0,.1);
+padding:5px;
+font:10px/16px Arial;
+background:padding-box #fff;
+position:absolute;
+margin-left:-84px;
+top:150px;
+}
+#postsocial.fixed {
+position:fixed;
+top:150px;
+}
+.postsocialbtn {
+width:auto;
+height:auto;
+line-height:0;
+padding:4px 1px;
+text-align:center;
+}
+.price-widget{
+padding: 20px 10px;
+border: 1px solid #ddd;
+margin-bottom: 25px;
+}
+.bt-price{
+color: #f47259;
+font-size: 0;
+font-weight: 700;
+line-height: 37px;
+float: left;
+text-transform: capitalize;
+font-size: 34px;
+}
+.bt-buy a {
+float: right;
+font-size: 15px;
+letter-spacing: 1px;
+border: 1px solid #1CA46C;
+color: #fff;
+display: inline-block;
+font-weight: 700;
+padding: 7px 20px;
+text-align: center;
+border-radius: 4px;
+text-shadow: 1px 1px 2px #118052;
+background: #25B37A;
+cursor: pointer;
+}
+.features{
+	clear: both;
+margin-bottom: 0;
+line-height: 1.6;
+font-size: 15px;
+font-size: 15px;
+margin-top: 14px;
+padding-top:10px;
+}
+.post-next{
+text-align:center;
+padding:10px;
+}
+.col-devider{
+padding: 10px;
+border-radius: 3px;
+margin-top: 10px;
+}
+.vid {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+ 
+.vid iframe,
+.vid object,
+.vid embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.smedia-btns{
+text-align:center;
+}
+.dearpinsfacebook-ffffff-16, .dearpinsgoogle-plus-ffffff-16, .dearpinstwitter-ffffff-16{ 
+background: url('../images/icons.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; 
+}
+ 
+.dearpinsfacebook-ffffff-16 { background-position: -5px -0px; width: 16px; height: 16px; }
+.dearpinsgoogle-plus-ffffff-16 { background-position: -5px -21px; width: 16px; height: 16px; }
+.dearpinstwitter-ffffff-16 { background-position: -5px -42px; width: 16px; height: 16px; }
+.dear-sharing-buttons {
+display: inline-block;
+color: #fff;
+font-weight: 700;
+font-size: 13px;
+margin: 6px 17px 6px 0;
+cursor: pointer;
+height: 39px;
+padding: 11px 14px;
+border-radius: 4px;
+}
+.dear-sharing-buttons:hover{
+color:#fff;
+}
+.social-facebook {
+background-color: #47639e;
+}
+.social-facebook:hover {
+background-color: #47639e;
+}
+.dear-sharing-buttons .social-facebook {
+background-repeat: repeat-x;
+-moz-user-select: none;
+background-color: #3b5998;
+color: #FFF;
+-webkit-font-smoothing: subpixel-antialiased;
+}
+.dear-sharing-buttons div.social-text {
+position: relative;
+top: -16px;
+left: 17px;
+padding-right: 20px;
+}
+.social-twitter {
+background-color:#00c3f3;
+}
+.social-twitter:hover {
+background-color:#00c3f3;
+}
+.dear-sharing-buttons .social-twitter {
+background-repeat: repeat-x;
+-moz-user-select: none;
+background-color: #00c3f3;
+color: #FFF;
+-webkit-font-smoothing: subpixel-antialiased;
+}
+.social-gplus {
+background-color:#dd4b39;
+}
+.social-gplus:hover {
+background-color:#dd4b39;
+}
+.dear-sharing-buttons .social-gplus {
+background-repeat: repeat-x;
+-moz-user-select: none;
+background-color: #dd4b39;
+color: #FFF;
+-webkit-font-smoothing: subpixel-antialiased;
+}
+.smedia-article div.social-text {
+  top: -20px !important;
+}

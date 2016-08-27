@@ -1,54 +1,94 @@
-<ion-view view-title="{{heading}}">
-   <ion-content id="fhm_page" >
-      <div class="fhm_container">
-        <div class="fhm_row">
-          
-          <a ng-href="#/appmam/selfie">
-            <div class="fhm_item">
-              Amigo Selfie
+<ion-view view-title="{{heading}}" class="feeds-categories-view">
+
+  <ion-content>
+    <div class="row categories-list">
+      <div class="col col-50">
+        <a class="feed-category" href="#/appmam/selfie">
+          <pre-img ratio="_1_1" helper-class="square-image">
+            <div class="pre-img _1_1 square-image finish-loading">  
+              <ng-transclude><img class="category-image" ng-src="img/selfie.png"  src="img/selfie.jpg"></ng-transclude>
             </div>
+          </pre-img>
+            <div class="category-bg"></div>
+            <span class="category-title ng-binding">Amigo Selfie</span>
           </a>
+      </div><!-- end -->
 
-          <a ng-href="#/appmam/novidades">
-            <div class="fhm_item">
-              Novidades
+      <div class="col col-50">
+        <a class="feed-category" href="#/appmam/novidades">
+          <pre-img ratio="_1_1" helper-class="square-image">
+            <div class="pre-img _1_1 square-image finish-loading">  
+              <ng-transclude><img class="category-image" ng-src="img/news.png" src="img/news.jpg"></ng-transclude>
             </div>
-          </a> 
-
-        </div>
-
-        <div class="fhm_row">
-          <a ng-href="#/appmam/galeria">
-            <div class="fhm_item">
-            <img src="img/galeria.png" class="teste">
-                Galeria
-            </div>
+          </pre-img>
+            <div class="category-bg"></div>
+             <span class="category-title ng-binding">Novidades</span>
           </a>
-
-          <a ng-href="#/appmam/atracoes">
-            <div class="fhm_item">
-              Atrações
+      </div><!-- end -->
+ 
+      <div class="col col-50">
+        <a class="feed-category" href="#/appmam/galeria">
+          <pre-img ratio="_1_1" helper-class="square-image">
+            <div class="pre-img _1_1 square-image finish-loading" >  
+              <ng-transclude><img class="category-image" ng-src="img/galeria.png" src="img/galeria.png"></ng-transclude>
             </div>
+          </pre-img>
+            <div class="category-bg"></div>
+             <span class="category-title ng-binding">Galeria</span>
           </a>
-        </div>
+      </div><!-- end -->
 
-        <div class="fhm_row">
-          <a ng-href="#/appmam/localizacao">
-            <div class="fhm_item">
-              Localização
+      <div class="col col-50">
+        <a class="feed-category" href="#/appmam/atracoes">
+          <pre-img ratio="_1_1" helper-class="square-image">
+            <div class="pre-img _1_1 square-image finish-loading" >  
+              <ng-transclude><img class="category-image" ng-src="img/atracoes.png" src="img/atracoes.png"></ng-transclude>
             </div>
+          </pre-img>
+            <div class="category-bg"></div>
+             <span class="category-title ng-binding">Atrações</span>
           </a>
-
-          <a ng-href="#/appmam/sobre">
-            <div class="fhm_item">
-              Sobre
+      </div><!-- end -->
+ 
+      <div class="col col-50">
+        <a class="feed-category" href="#/appmam/localizacao">
+          <pre-img ratio="_1_1" helper-class="square-image">
+            <div class="pre-img _1_1 square-image finish-loading" >  
+              <ng-transclude><img class="category-image" ng-src="img/localizacao.png" src="img/localizacao.png"></ng-transclude>
             </div>
+          </pre-img>
+            <div class="category-bg"></div>
+              <span class="category-title ng-binding">Localização</span>
           </a>
-        </div>
+      </div><!-- end -->
 
-
-
-      </div>
-    </ion-content>
-      
+      <div class="col col-50">
+        <a class="feed-category" href="#/appmam/sobre">
+          <pre-img ratio="_1_1" helper-class="square-image">
+            <div class="pre-img _1_1 square-image finish-loading" >  
+              <ng-transclude><img class="category-image" ng-src="img/sobre.png" src="img/sobre.png"></ng-transclude>
+            </div>
+          </pre-img>
+            <div class="category-bg"></div>
+             <span class="category-title ng-binding">Sobre</span>
+          </a>
+      </div><!-- end -->
+    </div>
+  </ion-content>    
 </ion-view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -338,11 +338,9 @@ app.controller('CategoriesCtrl', ['$scope', 'NewsApp', '$state', function($scope
 	}
 }])
 
-app.controller('SettingsCtrl', ['$scope','SendPush','Config', function( $scope, SendPush, Config ) {
-	
+app.controller('SettingsCtrl', ['$scope','SendPush','Config', '$cordovaMedia', '$ionicLoading',  function( $scope, SendPush, Config, $timeout, $cordovaNativeAudio, SoundController) {
 	$scope.AndroidAppUrl = Config.AndroidAppUrl;
 	$scope.AppName = Config.AppName;
-	
 	$scope.pushNot = [];
 	$scope.pushNot.pushStatus = false;
 	document.addEventListener("deviceready", function(){
@@ -350,24 +348,39 @@ app.controller('SettingsCtrl', ['$scope','SendPush','Config', function( $scope, 
 		.success(function (data) {
 			if(data.enable == 'yes') {
 				$scope.pushNot.pushStatus = true;
+				
+			}else{
+				
 			}
 		})
 		.error(function (error) {
 			//alert('error'+data)
 		});
 	});
-	$scope.savePushDetails = function(){
+
+	$scope.play = function(src){
 		$scope.sendStatus = 'no';
 		if($scope.pushNot.pushStatus == true){
-			$scope.sendStatus = 'yes';
+			//var media = new Media(src, null, null, mediaStatusCallback);
+        	//$cordovaMedia.play(media);*/
+        	alert('Ainda não funciona: ' + media);
+		}else{
+			alert('Você parou a música');
 		}
-		SendPush.savePushDetails(device.uuid, $scope.sendStatus)
+		var mediaStatusCallback = function(status) {
+	        if(status == 1) {
+	            $ionicLoading.show({template: 'Loading...'});
+	        } else {
+	            $ionicLoading.hide();
+	        }
+    	}
+		/*SendPush.savePushDetails(device.uuid, $scope.sendStatus)
 		.success(function (data) {
 			// alert success
 		})
 		.error(function (error) {
 			//alert('error'+data)
-		});
+		});*/
 	}
 }])
 /* About us Controller */

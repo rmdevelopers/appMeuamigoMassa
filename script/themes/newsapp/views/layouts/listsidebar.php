@@ -1,0 +1,2 @@
+<h5>Like us to get latest Updates</h5>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=<?php echo urlencode(Yii::app()->params->facebook) ?>&amp;width=320&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true&amp;appId=209324982583374" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:320px; height:290px;" allowTransparency="true"></iframe>

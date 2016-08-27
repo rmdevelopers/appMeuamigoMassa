@@ -16,7 +16,7 @@ app.constant("ConfigAdmob", {
 })
 // color variations
 app.constant("Color", {
-  "AppColor": "positive", //light, stable, positive, calm, balanced, energized, assertive, royal, dark
+  "AppColor": "light", //light, stable, positive, calm, balanced, energized, assertive, royal, dark
 })
 // push notification
 app.constant("PushNoti", {

@@ -15,7 +15,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
           	templateUrl: "templates/home.html",
 		  		controller: "HomeCtrl"
         }
-      }
+      },
+      changeColor: 'bar-assertive'
     })
 
    // novidades page
