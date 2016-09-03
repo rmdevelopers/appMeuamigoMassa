@@ -1,10 +1,13 @@
 <ion-view view-title="Adicionar Moldura">
 	<ion-pane> 
-		<ion-content overflow-scroll="true" ng-controller="MolduraCtrl">
-			<i class="icon ion-social-facebook" ng-click="commoldura()"></i>				
-      		
-      		<button id="btn-mygoback" ng-click="myGoBack()">Escolher outra imagem</button>        		
-              
+		<ion-content overflow-scroll="true" ng-controller="MolduraCtrl">	
+			<li class="item item-button-left" ng-click="commoldura()">
+	          		Compartilhar no Face Book
+	          	<button class="button button-positive">
+	            	<i class="icon ion-social-facebook"></i>
+	          	</button>
+	        </li>      		
+  			<!-- <button id="btn-mygoback" ng-click="myGoBack()">Escolher outra imagem</button>-->
 	        <div id="container">
 	        	{{addmoldura()}}
 	          <canvas id="canvas" width="413" height="737"></canvas>

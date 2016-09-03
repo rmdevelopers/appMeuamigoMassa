@@ -1,4 +1,4 @@
-var app = angular.module("app.services", []);
+var app = angular.module("app.services", ["ngMap"]);
 
 
 app.factory("ImageService", function ($cordovaCamera, $cordovaFile, FileService) {
@@ -84,7 +84,7 @@ app.factory("FileService", function ($cordovaFile) {
 
   return self;
 
-});
+})
 
 
 //app run getting device id

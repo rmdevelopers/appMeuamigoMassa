@@ -26,7 +26,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
       views: {
         'menuWorPress' :{
             templateUrl: "templates/novidades.html",
-          controller: "HomeCtrl"
+          controller: "NovidadesCtrl"
+        }
+      }
+    })
+
+   // novidades page
+   .state('appmam.galeria', {
+      url: "/galeria",
+    cache : true,
+      views: {
+        'menuWorPress' :{
+            templateUrl: "templates/galeria.html",
+          controller: "GaleriaCtrl"
         }
       }
     })
@@ -131,6 +143,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
         'menuWorPress' :{
           	templateUrl: "templates/admob.html",
 		  		controller: "AdmobCtrl"
+        }
+      }
+    })
+   .state('appmam.localizacao', {
+      url: "/localizacao",
+      views: {
+        'menuWorPress' :{
+            templateUrl: "templates/localizacao.html",
+          controller: "LocalizacaoCtrl"
         }
       }
     })

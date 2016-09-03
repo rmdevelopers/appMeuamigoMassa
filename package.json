@@ -26,7 +26,6 @@
     {
       "platform": "android",
       "locator": "windows"
-    },
-    "ios"
+    }
   ]
 }

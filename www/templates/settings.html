@@ -1,38 +1,17 @@
 <ion-view view-title="Configurações">
    <ion-content has-header="true">
       <ul class="list">
-      	<li>
-           <div class="item item-divider">
-             Jingle
-           </div>
-        </li>
-        <li class="item item-toggle">
-        	  Ouvir Jingle deste ano
-           <label class="toggle toggle-assertive">
-             <!-- <input ng-model="pushNot.pushStatus" ng-click="savePushDetails();" type="checkbox"> -->
-             <input ng-model="pushNot.pushStatus" ng-click="play('http://www.stephaniequinn.com/Music/Commercial%20DEMO%20-%2013.mp3')" type="checkbox"> 
-
-             <div class="track">
-               <div class="handle"></div>
-             </div>
-           </label>
-        </li>
         <li>
            <div class="item item-divider">
-             Sobre o aplicativo
+             Compartilhe o aplicativo
            </div>
         </li>
         <li class="item item-button-left" ng-click="shareArticle(AppName, AndroidAppUrl);">
-          	Compartilhar App
+          	Compartilhar
           	<button class="button button-assertive">
             	<i class="icon ion-android-share-alt"></i>
           	</button>
         </li>
-        <li class="item item-button-left" ng-click="openLinkSystem(AndroidAppUrl);">
-				    Deixar uma resenha
-          	<button class="button button-assertive">
-            	<i class="icon ion-ios-star-outline"></i>
-          	</button>
         <li>
            <div class="item item-divider">
              Shalom Parquelândia
@@ -46,24 +25,49 @@
         </li>
         <li>
            <div class="item item-divider">
-             Sobre o desenvolvedor - Contato
+             Contatos do desenvolvedor
            </div>
         </li>
-
-        <li class="item item-button-left" ng-click="openLinkSystem('tel:085-98708-4721');">
-            (85) 98708-4721  
-            <button class="button button-royal">
-              <i class="icon ion-iphone"></i>
-            </button>
-        <li>
-
         <li class="item item-button-left" ng-click="openLinkSystem('mailto:rafaelmp.web@gmail.com');">
             rafaelmp.web@gmail.com 
             <button class="button button-royal">
               <i class="icon ion-email"></i>
             </button>
+        <li>        
+        <li class="item item-button-left" ng-click="openLinkSystem('tel:085-98708-4721');">
+            (85) 98708-4721  
+            <button class="button button-royal">
+              <i class="icon ion-iphone"></i>
+            </button>
+        <li>        
         <li>
+           <div class="item item-divider titu">
+             JINGLE MEU AMIGO É MASSA!
+           </div>
+        </li>
+        <li class="item item-toggle">
+           Escute abaixo todos os jingles
+        </li>
 
+        <div class="list card" ng-repeat="audio in audioTracks">
+          <div class="item item-avatar">
+            <img src="http://findicons.com/files/icons/2711/free_icons_for_windows8_metro/512/audio_wave.png">
+            <h2>{{audio.title}}</h2>
+            <p>{{audio.genre}}</p>
+          </div>
+
+          <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" href="#" ng-click="playTrack(audio.track, audio.key)">
+              <i class="icon ion-ios-play"></i>
+              Play
+            </a>
+            <a class="tab-item" href="#" ng-click="stopTrack()">
+              <i class="icon ion-android-checkbox-blank"></i>
+              Stop
+            </a>
+          </div>
+
+        </div>
         
       </ul>
     </ion-content>

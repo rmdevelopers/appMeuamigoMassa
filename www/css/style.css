@@ -5,6 +5,7 @@ body {cursor: url('../img/bg.jpg'), auto;}
 .fhm_item {height: 100%;width:49.95%;background-color: #fff;border: 1px solid #FFFFFF;float:left;}
 .fhm_item {text-align: center;}
 .cmf{font-size: 100px;}
+.titu{background: #5d2a6c!important; color: #fff!important;}
 
 #background {
     display: none;
@@ -28,7 +29,54 @@ body {cursor: url('../img/bg.jpg'), auto;}
   max-width: 287px;
 }
 
+#txtEnderecoPartida{width: 100%;}
 
+
+#map {
+  float: left;
+  width: 100%;
+  height: 300px;
+}
+#right-panel {
+  float: right;
+  width: 34%;
+  height: 100%;
+}
+#right-panel {
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+#right-panel select, #right-panel input {
+  font-size: 15px;
+}
+
+#right-panel select {
+  width: 100%;
+}
+
+#right-panel i {
+  font-size: 12px;
+}
+
+      .panel {
+        height: 100%;
+        overflow: auto;
+      }
+#floating-panel {
+  position: absolute;
+  top: 10px;
+  left: 25%;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
 /**
  * CATEGORIA
  * --------------------------------------------------
@@ -360,3 +408,69 @@ body {cursor: url('../img/bg.jpg'), auto;}
       margin-left: 0;
       max-width: 100%;
       width: 100%; } }
+
+
+.transparent {
+  background: transparent !important;
+}
+.image-modal {
+  width: 100% !important;
+  height: 100%;
+  top: 0 !important;
+  left: 0 !important;
+}
+.fullscreen-image {
+
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+
+}
+
+/* Fix modal backdrop for smaller devices */
+@media (max-width: 679px) {
+  .active .modal-backdrop-bg {
+    opacity: .5;
+  }
+  .modal-backdrop-bg {
+    -webkit-transition: opacity 300ms ease-in-out;
+    transition: opacity 300ms ease-in-out;
+    background-color: #000;
+    opacity: 0;
+  }
+
+
+}
+
+.item-galeria.item-image {
+    padding: 6px;
+}
+
+.post-contents{  
+    background-color: black;
+}
+
+
+#photos {
+  /* Prevent vertical gaps */
+  line-height: 0;
+   
+  -webkit-column-count: 3;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    3;
+  -moz-column-gap:      0px;
+  column-count:         3;
+  column-gap:           0px;  
+  height: 100%;
+}
+
+#photos img {
+  /* Just in case there are inline attributes */
+  width: 100% !important;
+  height: auto !important;
+}

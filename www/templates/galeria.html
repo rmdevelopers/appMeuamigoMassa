@@ -1,0 +1,29 @@
+<ion-view view-title="Galeria">
+   <ion-content class="post-contents">
+   	<ion-refresher
+       	pulling-text="Pull to refresh..."
+       	on-refresh="doRefresh()">
+     	</ion-refresher>
+      <section id="photos">
+        <div class="lists" ng-repeat="item in items">
+
+          <div class="item-galeria item-image">
+            <img ng-src="{{item.image || 'img/photo.png'}}" ng-click="showImage($index)"></img>
+          </div> 
+        </div>
+      </section>
+      <script id="image-modal.html" type="text/ng-template">
+        <div class="modal image-modal transparent" ng-click="closeModal()">
+          <ion-pane class="transparent">
+             <img id="pictures" ng-src="{{imageSrc}}" class="fullscreen-image"/>
+          </ion-pane>
+        </div>
+      </script>
+
+      <ion-infinite-scroll
+       	ng-if="postsCompleted == false"
+       	on-infinite="getPosts()"
+       	distance="10%">
+     	</ion-infinite-scroll>
+   </ion-content>
+</ion-view>

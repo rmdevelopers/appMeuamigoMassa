@@ -1,7 +1,5 @@
 // Ionic Starter App
-// Meu amigo é massa 206
-
-
+// Meu amigo é massa 2016
 var app = angular.module('YourApp', ['ionic','ngSanitize', 'ngCordova','ngIOS9UIWebViewPatch', 'app.services']);
 app.run(function($ionicPlatform, $cordovaFile, FileService) {
   $ionicPlatform.ready(function() {
@@ -43,13 +41,60 @@ app.controller('NewsCtrl', ['$scope', '$state', '$ionicSlideBoxDelegate','Color'
 		  if(error){
 			console.error(error);
 		  }else{
-			  window.plugins.socialsharing.share(title, Config.AppName, res.URI, url)
+			  window.plugins.socialsharing.share(title, Config.AppName, res.URI, '')
 		  }
 		},'jpg',70);
 	}
 }])
 /* recent posts controller */
-app.controller('HomeCtrl', ['$scope', 'NewsApp', '$state', 'Config', '$cordovaToast', 'ConfigAdmob', function($scope, NewsApp, $state, Config, $cordovaToast, ConfigAdmob) {	
+app.controller('NovidadesCtrl', ['$scope', 'NewsApp', '$state', 'Config', '$cordovaToast', 'ConfigAdmob', function($scope, NewsApp, $state, Config, $cordovaToast, ConfigAdmob) {	
+
+	$scope.categoryName = 'novidades';
+	$scope.category = 4;
+	if($scope.categoryName){ 
+		$scope.heading = $scope.categoryName;
+	}
+	$scope.items = [];
+	$scope.times = 0 ;
+	$scope.postsCompleted = false;
+	// load more content function
+	$scope.getPosts = function(){
+		NewsApp.getPosts($scope.times, $scope.category)
+		.success(function (posts) {
+			$scope.items = $scope.items.concat(posts.news);
+			console.log(posts.news);
+			NewsApp.posts = $scope.items;
+			$scope.$broadcast('scroll.infiniteScrollComplete');
+			$scope.times = $scope.times + 1;
+			if(posts.news.length == 0) {
+			
+				$scope.postsCompleted = true;
+			}
+		})
+		.error(function (error) {
+			$scope.items = [];
+		});
+	}
+	// pull to refresh buttons
+	$scope.doRefresh = function(){
+		$scope.times = 0 ;
+		$scope.items = [];
+		$scope.postsCompleted = false;
+		$scope.getPosts();
+		$scope.$broadcast('scroll.refreshComplete');
+	}
+	// showing single post
+	$scope.readMore = function(index){
+		$state.go('appmam.post',{
+			catId:$scope.category,
+			offset:$scope.times,
+			index:index,
+			type:'category'
+		});
+	}
+
+	/*
+
 	// setting header -- 
 	$scope.heading = Config.AppName;
 	$scope.items = [];
@@ -92,9 +137,143 @@ app.controller('HomeCtrl', ['$scope', 'NewsApp', '$state', 'Config', '$cordovaTo
 			index:index,
 			type:'home'
 		});
-	}
+	}*/
 
 }])
+
+/* recent posts controller */
+app.controller('GaleriaCtrl', ['$scope', 'GaleriaApps', '$state', 'Config', 'ConfigAdmob', '$ionicModal', function($scope, GaleriaApps, $state, Config,  ConfigAdmob, $ionicModal) {	
+	
+  	$scope.egal = "";
+  	$ionicModal.fromTemplateUrl('image-modal.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+    $scope.openModal = function() {
+      $scope.modal.show();
+    };
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
+    $scope.$on('$destroy', function() {
+      $scope.modal.remove();
+    });
+    $scope.$on('modal.hide', function() {
+    });
+    $scope.$on('modal.removed', function() {
+    });
+    $scope.$on('modal.shown', function() {
+    });
+
+
+	$scope.showImage = function(i) {
+      $scope.imageSrc = $scope.items[i].image;
+      $scope.openModal();
+       $ImageCacheFactory.Cache([$scope.imageSrc]).then(function(){
+      },function(failed){
+      }); 
+    }  
+
+
+
+	$scope.categoryName = 'galeria';
+	$scope.category = 3;
+	if($scope.categoryName){ 
+		$scope.heading = $scope.categoryName;
+	}
+	$scope.items = [];
+	$scope.times = 0 ;
+	$scope.postsCompleted = false;
+	// load more content function
+	$scope.getPosts = function(){
+		GaleriaApps.getPosts($scope.times, $scope.category)
+		.success(function (posts) {
+			$scope.items = $scope.items.concat(posts.news);
+			console.log(posts.news);
+			GaleriaApps.posts = $scope.items;
+			$scope.$broadcast('scroll.infiniteScrollComplete');
+			$scope.times = $scope.times + 1;
+			if(posts.news.length == 0) {
+			
+				$scope.postsCompleted = true;
+			}
+		})
+		.error(function (error) {
+			$scope.items = [];
+		});
+	}
+	// pull to refresh buttons
+	$scope.doRefresh = function(){
+		$scope.times = 0 ;
+		$scope.items = [];
+		$scope.postsCompleted = false;
+		$scope.getPosts();
+		$scope.$broadcast('scroll.refreshComplete');
+	}
+	// showing single post
+	$scope.readMore = function(index){
+		$state.go('appmam.post',{
+			catId:$scope.category,
+			offset:$scope.times,
+			index:index,
+			type:'category'
+		});
+	}
+}])
+
+
+
+/* Home controller */
+app.controller('HomeCtrl', ['$scope', '$state', 'Config', '$ionicPopup', '$timeout', '$ionicPlatform', '$cordovaToast', function($scope, $state, Config, $ionicPopup, $timeout , $ionicPlatform, $cordovaToast) {	
+	$scope.heading = Config.AppName;
+	var valida = false;
+	// A confirm dialog
+	$scope.showConfirm = function() {
+		if (window.cordova) {
+			cordova.plugins.diagnostic.isLocationEnabled(function(enabled) {
+		        if(!enabled){
+					var confirmPopup = $ionicPopup.show({
+						title: 'Ativar GPS',
+						template: 'Habilitar GPS para traçar uma rota até o Meu Amigo é Massa?',
+						scope: $scope,
+					    buttons: [
+					      { text: 'cancelar' },
+					      {
+					        text: '<b>Ativar!</b>',
+					        type: 'button-positive',
+					        onTap: function(e) {					        	
+					        	cordova.plugins.diagnostic.switchToLocationSettings();
+					        	valida = true;
+					        }
+					      }
+					    ]
+					});
+		        }else{
+		        	$state.go('appmam.localizacao');
+		        }		      
+		    },
+		    function(error) {
+		    	alert("The following error occurred: " + error);
+		    });
+		};
+	};
+
+	/*DETECTA O RESUMO DE UMA ATIVIDADE*/
+	$ionicPlatform.on('resume', function(){
+    	cordova.plugins.diagnostic.isLocationEnabled(function(enabled) {
+    		//somente quando eu sair das conf de localização
+	        if(enabled && valida){
+	        	$state.go('appmam.localizacao');
+	        }		      
+	    }, 	
+	    function(error) {
+	    	alert("The following error occurred: " + error);
+	    });
+    });
+}])
+
 /* category posts controller */
 app.controller('CategoryCtrl', ['$scope', 'NewsApp', '$state', '$stateParams', 'Config', '$cordovaToast', function($scope, NewsApp, $state, $stateParams, Config, $cordovaToast) {	
 	// setting header --
@@ -338,50 +517,80 @@ app.controller('CategoriesCtrl', ['$scope', 'NewsApp', '$state', function($scope
 	}
 }])
 
-app.controller('SettingsCtrl', ['$scope','SendPush','Config', '$cordovaMedia', '$ionicLoading',  function( $scope, SendPush, Config, $timeout, $cordovaNativeAudio, SoundController) {
+app.controller('SettingsCtrl', ['$scope','SendPush','Config', '$timeout', '$cordovaNativeAudio', '$ionicPlatform' , function( $scope, SendPush, Config, $timeout, $cordovaNativeAudio, SoundController, $ionicPlatform) {
 	$scope.AndroidAppUrl = Config.AndroidAppUrl;
 	$scope.AppName = Config.AppName;
 	$scope.pushNot = [];
-	$scope.pushNot.pushStatus = false;
-	document.addEventListener("deviceready", function(){
-		SendPush.getDetails(device.uuid)
-		.success(function (data) {
-			if(data.enable == 'yes') {
-				$scope.pushNot.pushStatus = true;
-				
-			}else{
-				
-			}
-		})
-		.error(function (error) {
-			//alert('error'+data)
-		});
-	});
 
-	$scope.play = function(src){
-		$scope.sendStatus = 'no';
-		if($scope.pushNot.pushStatus == true){
-			//var media = new Media(src, null, null, mediaStatusCallback);
-        	//$cordovaMedia.play(media);*/
-        	alert('Ainda não funciona: ' + media);
-		}else{
-			alert('Você parou a música');
-		}
-		var mediaStatusCallback = function(status) {
-	        if(status == 1) {
-	            $ionicLoading.show({template: 'Loading...'});
-	        } else {
-	            $ionicLoading.hide();
-	        }
-    	}
-		/*SendPush.savePushDetails(device.uuid, $scope.sendStatus)
-		.success(function (data) {
-			// alert success
-		})
-		.error(function (error) {
-			//alert('error'+data)
-		});*/
-	}
+	  var audio = [{
+    id: 1,
+    key: '2016',
+    title: "É tempo de viver",
+    track: 'jingle/2016.mp3',
+    genre: "Meu amigo é Massa 2016"
+  }, {
+    id: 2,
+    key: '2015',
+    title: "Meu amigo, Minha alegria",
+    track: 'jingle/2015.mp3',
+    genre: "Meu amigo é Massa 2015"
+  }, {
+    id: 3,
+    key: '2014',
+    title: "Para sempre",
+    track: 'jingle/2014.mp3',
+    genre: "Meu amigo é Massa 2014"
+  }, {
+    id: 4,
+    key: '2013',
+    title: "Com você na JMJ",
+    track: 'jingle/2013.mp3',
+    genre: "Meu amigo é Massa 2013"
+  }, {
+    id: 5,
+    key: '2012',
+    title: "Hoje tenho alegria, tenho sua companhia",
+    track: 'jingle/2012.mp3',
+    genre: "Meu amigo é Massa 2012"
+  }, {
+    id: 6,
+    key: '2011',
+    title: "Poderosa Proteção",
+    track: 'jingle/2011.mp3',
+    genre: "Meu amigo é Massa 2011"
+  }, ];
+
+  $scope.audioTracks = Array.prototype.slice.call(audio, 0);
+
+    $scope.player = {
+    	key: '' // Holds a last active track
+  	}
+
+    $scope.playTrack = function(track, key) {
+    	if (key == '2015') { alert('Sem áudio! Confira os outros anos, logo abaixo!'); return false;}
+      // Preload an audio track before we play it
+      window.plugins.NativeAudio.preloadComplex(key, track, 1, 1, 0, function(msg) {
+        // If this is not a first playback stop and unload previous audio track
+        if ($scope.player.key.length > 0) {
+          window.plugins.NativeAudio.stop($scope.player.key); // Stop audio track
+          window.plugins.NativeAudio.unload($scope.player.key); // Unload audio track
+        }
+        window.plugins.NativeAudio.play(key); // Play audio track
+        $scope.player.key = key; // Set a current audio track so we can close it if needed 
+      }, function(msg) {
+      	$scope.player.key = '';
+        console.log('error: ' + msg); // Loading error
+      });
+    };
+    $scope.stopTrack = function() {
+        // If this is not a first playback stop and unload previous audio track
+        if ($scope.player.key.length > 0) {
+          window.plugins.NativeAudio.stop($scope.player.key); // Stop audio track
+          window.plugins.NativeAudio.unload($scope.player.key); // Unload audio track
+          $scope.player.key = '';
+        }
+    };
+
 }])
 /* About us Controller */
 app.controller('AboutCtrl', ['$scope', function($scope) {
@@ -409,9 +618,7 @@ app.controller('ContactCtrl', ['$scope', 'ConfigContact', function($scope, Confi
 
 //////////////////*  CAMERA */
 
-
 app.controller('CameraCtrl', ['$scope', '$state', 'ImageService', 'FileService', '$cordovaSocialSharing', '$cordovaDevice', '$cordovaFile', '$ionicPlatform' , function($scope, $state, ImageService, FileService, $cordovaSocialSharing, $cordovaDevice, $cordovaFile, $ionicPlatform) {	
-
 
 	// passar por parâmetro a imagem clicada
 	$scope.molds = function(imgs){
@@ -447,10 +654,7 @@ app.controller('CameraCtrl', ['$scope', '$state', 'ImageService', 'FileService',
 
 /****** fim CAMERA ********/
 
-
-
 //////////////////*  MolduraCtrl */
-
 
 app.controller('MolduraCtrl', ['$scope', '$ionicHistory', 'ImageService', '$stateParams', 'FileService', '$cordovaSocialSharing', '$cordovaDevice', '$cordovaFile', '$ionicPlatform' , function($scope, $ionicHistory, ImageService, $stateParams, FileService, $cordovaSocialSharing, $cordovaDevice, $cordovaFile, $ionicPlatform) {	
 
@@ -483,7 +687,7 @@ app.controller('MolduraCtrl', ['$scope', '$ionicHistory', 'ImageService', '$stat
 		var $ballon = $('#ma_moldura'),
 		$canvas = $('#canvas');
 		var ballon_x = $ballon.offset().left - $canvas.offset().left,
-		ballon_y = $ballon.offset().top - $canvas.offset().top + 110;
+		ballon_y = $ballon.offset().top - $canvas.offset().top + 140;
 		context.drawImage(ballon, ballon_x, ballon_y);
 		$ballon.hide();
 		$('#btn-moldura').prop("disabled",true);
@@ -502,8 +706,156 @@ app.controller('MolduraCtrl', ['$scope', '$ionicHistory', 'ImageService', '$stat
 
 }])
 
-
 /****** fim MolduraCtrl ********/
+
+/* Localizacao Controller */
+app.controller('LocalizacaoCtrl', ['$scope','$ionicLoading' ,'$cordovaGeolocation', '$ionicPlatform', function($scope, $ionicLoading, $cordovaGeolocation, $ionicPlatform) {
+	
+  	var map;
+	var directionsDisplay;
+	var directionsService = new google.maps.DirectionsService();
+	var gmarkers = [];
+    $ionicPlatform.ready(function() {    
+ 
+        $ionicLoading.show({
+            template: '<ion-spinner icon="bubbles"></ion-spinner><br/>Encontrando sua localização...'
+        });
+         
+        var posOptions = {
+            enableHighAccuracy: true,
+            timeout: 20000,
+            maximumAge: 0
+        };
+ 
+        $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+            var lat  = position.coords.latitude;
+            var long = position.coords.longitude;
+             
+            var myLatlng = new google.maps.LatLng(lat, long);
+             
+               
+            var contentString = '<div id="content">'+   
+			  '<h3 id="firstHeading" class="firstHeading">Estou aqui</h3>'+     
+			  '</div>';
+
+			var infowindow = new google.maps.InfoWindow({
+			content: contentString
+			});
+
+			directionsDisplay = new google.maps.DirectionsRenderer();
+		
+		    var options = {
+		        zoom: 16,
+				center: myLatlng,
+		        mapTypeId: google.maps.MapTypeId.ROADMAP
+		    };
+
+			var contentString = '<div id="content">'+   
+			  '<h3 id="firstHeading" class="firstHeading">Estou aqui</h3>'+     
+			  '</div>';
+
+			var infowindow = new google.maps.InfoWindow({
+				content: contentString
+			});
+
+		    map = new google.maps.Map(document.getElementById("map"), options);
+			directionsDisplay.setMap(map);
+			directionsDisplay.setPanel(document.getElementById("trajeto-texto"));
+			
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function (position) {
+
+					pontoPadrao = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+					map.setCenter(pontoPadrao);
+					
+					var geocoder = new google.maps.Geocoder();
+					
+					geocoder.geocode({
+						"location": new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+		            },
+		            function(results, status) {
+						if (status == google.maps.GeocoderStatus.OK) {
+							$("#txtEnderecoPartida").val(results[0].formatted_address);	
+							 $ionicLoading.hide(); 			
+							var marker = new google.maps.Marker({
+								position: pontoPadrao,
+								icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+								map: map			  
+							});
+							gmarkers.push(marker);
+							infowindow.open(map, marker);
+
+						}
+		            });
+				});
+			}
+      
+             
+        }, function(err) {
+            $ionicLoading.hide();
+            console.log(err);
+
+        });
+   
+});
+
+
+
+	$scope.rotas= function(){ 
+
+		
+		//Instanciar o DistanceMatrixService
+		var service = new google.maps.DistanceMatrixService();
+		//executar o DistanceMatrixService
+		service.getDistanceMatrix(
+		  {
+
+		      //Origem
+		      origins: [$("#txtEnderecoPartida").val()],
+		      //Destino
+		      destinations: [$("#txtEnderecoChegada").val()],
+		      //Modo (DRIVING | WALKING | BICYCLING)
+		      travelMode: google.maps.TravelMode.DRIVING,
+		      //Sistema de medida (METRIC | IMPERIAL)
+		      unitSystem: google.maps.UnitSystem.METRIC
+		      //Vai chamar o callback
+		  }, callback);
+
+		$("#trajeto-texto").slideUp( 300 ).delay( 800 ).fadeIn( 400 );
+		event.preventDefault();
+		
+		var enderecoPartida = $("#txtEnderecoPartida").val();
+		var enderecoChegada = '-3.7353818,-38.5691357';
+		
+		var request = {
+			origin: pontoPadrao,
+			destination: enderecoChegada,
+			travelMode: google.maps.TravelMode.DRIVING
+		};
+		
+		directionsService.route(request, function(result, status) {
+			if (status == google.maps.DirectionsStatus.OK) {
+
+				directionsDisplay.setDirections(result);
+
+				var contentString = '<div id="content">'+  '<h3 id="firstHeading" class="firstHeading">Estou aqui</h3>'+ '</div>';
+
+				var infowindow = new google.maps.InfoWindow({
+				content: contentString
+				});
+				 for(i=0; i<gmarkers.length; i++){
+			        gmarkers[i].setMap(null);
+			    }
+
+			}
+		});
+	}
+
+	//Tratar o retorno do DistanceMatrixService
+	function callback(response, status) {
+
+	}
+}])
 
 
 
@@ -535,3 +887,8 @@ app.controller('AdmobCtrl', ['$scope', 'ConfigAdmob', function($scope, ConfigAdm
 		}
 	});
 }]);
+
+/*
+*	ESTUDAR A POSSIBILIDADE
+*	http://www.gajotres.net/using-cordova-geoloacation-api-with-google-maps-in-ionic-framework/2/
+*/

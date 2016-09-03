@@ -1,7 +1,7 @@
 app.constant("Config", {
   "WebUrl": "http://rdeveloper.com.br/apis/",
   "AppName" : "Meu Amigo é Massa!",
-  "AndroidAppUrl" : "https://play.google.com/store/apps/details?id=com.myspecialgames.advanced2048game",
+  "AndroidAppUrl" : "https://play.google.com/store/apps/details?id=apps.rdevelopers.watchmyplay",
   "ErrorMessage" : "Atualizado"
 })
 // config contact

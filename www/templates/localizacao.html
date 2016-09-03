@@ -1,0 +1,17 @@
+<ion-view view-title="Localização">
+  <ion-content has-header="true">
+    <li class="item item-button-left" ng-click="rotas();">
+        Clique aqui para chegar ao local 
+        <button class="button button-assertive">
+          <i class="icon ion-android-locate"></i>
+        </button>
+    </li>
+   
+    <input type="hidden" id="txtEnderecoPartida" name="txtEnderecoPartida" />           
+    <input type="hidden" id="txtEnderecoChegada" value="Colégio Santa Isabel, 2840 - Avenida Bezerra de Menezes - Fortaleza - CE" name="txtEnderecoChegada" />
+
+
+    <div id="map"></div>
+    <div id="trajeto-texto"></div>
+  </ion-content>
+</ion-view>

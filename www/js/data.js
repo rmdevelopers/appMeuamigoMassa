@@ -1,6 +1,6 @@
 // friends factory
 app.factory('NewsApp',['$http', 'Config', function($http, Config) {
-	var data = {};
+	/*var data = {};
 	data.getPosts = function (page, category) {
 		if(category){
 			return $http(
@@ -30,8 +30,31 @@ app.factory('NewsApp',['$http', 'Config', function($http, Config) {
 			}
 		);
 	}
+  	return data;*/
+
+  		var data = {};
+		data.getPosts = function (page, category) {		
+			return $http(
+				{
+					method: 'GET', url:Config.WebUrl+'api/news/posts/?offset='+page+'&category='+category
+				}
+			);
+	}
   	return data;
 }]);
+// GaleriaApp factory
+app.factory('GaleriaApps',['$http', 'Config', function($http, Config) {
+	var data = {};
+	data.getPosts = function (page, category) {		
+			return $http(
+				{
+					method: 'GET', url:Config.WebUrl+'api/news/posts/?offset='+page+'&category='+category
+				}
+			);
+	}
+  	return data;
+}]);
+
 // global factory
 app.factory('globalFactory', function() {
 	return {
