@@ -1,0 +1,8 @@
+{
+  "name": "parquelandiaapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "pro_id": "4e701f77"
+}
